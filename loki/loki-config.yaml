@@ -29,9 +29,22 @@ schema_config:
         prefix: index_
         period: 24h
 
+table_manager:
+  retention_deletes_enabled: true
+  retention_period: 90d
+
 limits_config:
   ingestion_rate_mb: 1024
   ingestion_burst_size_mb: 1024
 
 ruler:
+  storage:
+    type: local
+    local:
+      directory: /tmp/loki/rules
+  rule_path: /loki/rules-temp
   alertmanager_url: http://localhost:9093
+  ring:
+    kvstore:
+      store: inmemory
+  enable_api: true
