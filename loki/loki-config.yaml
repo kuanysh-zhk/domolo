@@ -36,6 +36,13 @@ table_manager:
 limits_config:
   ingestion_rate_mb: 1024
   ingestion_burst_size_mb: 1024
+  split_queries_by_interval: 24h
+  max_query_parallelism: 100
+
+query_scheduler:
+  max_outstanding_requests_per_tenant: 4096
+frontend:
+  max_outstanding_per_tenant: 4096
 
 ruler:
   storage:
