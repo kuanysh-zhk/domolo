@@ -28,3 +28,14 @@ scrape_configs:
       labels:
         job: varlogs
         __path__: /var/log/*log
+
+  - job_name: sc-server
+    static_configs:
+    - targets:
+        - localhost
+      labels:
+        job: sc-server-log
+        __path__: /home/sc-server.log
+    pipeline_stages:
+    - labeldrop:
+      - filename
