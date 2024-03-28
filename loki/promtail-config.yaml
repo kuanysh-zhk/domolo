@@ -36,6 +36,3 @@ scrape_configs:
       labels:
         job: sc-server-log
         __path__: /home/sc-server.log
-    pipeline_stages:
-    - labeldrop:
-      - filename
